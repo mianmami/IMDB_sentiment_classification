@@ -4,7 +4,9 @@ class Config:
         self.vocab_dict_save_path = './data/vocab_dict.pkl'  # 词表保存路径
         self.pretrained_embeddings_path = './data/glove.6B/glove.6B.300d.txt'  # glove 300d预训练词向量路径
         self.embeddings_save_path = './data/embeddings'  # 使用预训练词向量的词表保存路径
-        self.stopwords_path = './data/stopwords.en.txt'
+        self.stopwords_path = './data/stopwords.en.txt'  # 停用词路径
+        self.train_csv_path = './data/train.csv'  # fasttext 需要的语料库标准格式 train
+        self.test_csv_path = './data/test.csv'  # fasttext 需要的语料库标准格式 test
 
         self.num_drop_high_freq = 20  # 剔除词频最高的前20个词
         self.max_vocab_dict_len = 10000  # 词表最大长度

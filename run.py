@@ -5,6 +5,7 @@ import argparse
 from importlib import import_module
 from config import config
 from train_eval import train_eval
+from run_fasttext import run_fasttext
 
 
 # --model 选择模型
@@ -12,7 +13,7 @@ from train_eval import train_eval
 
 
 parser = argparse.ArgumentParser(description='IMDB sentiment classification')
-parser.add_argument('--model', type=str, required=True, help='choose a model: TextRNN, TextCNN')
+parser.add_argument('--model', type=str, required=True, help='choose a model: TextRNN, TextCNN, DPCNN, fastText')
 parser.add_argument('--pretrained', type=bool, default=False)
 args = parser.parse_args()
 
@@ -30,5 +31,8 @@ if __name__ == '__main__':
     vocab_dict = pickle.load(open('./data/vocab_dict.pkl', 'rb'))
     config.max_vocab_dict_len = len(vocab_dict)  # 词表长度运行时赋值
 
-    model = import_module('models.' + args.model).Model(embeddings)
-    train_eval(model)
+    if args.model == 'fastText':
+        run_fasttext()
+    else:
+        model = import_module('models.' + args.model).Model(embeddings)
+        train_eval(model)
