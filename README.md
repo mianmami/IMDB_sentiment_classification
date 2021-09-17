@@ -11,4 +11,4 @@
 |TextRNN|0.84348|
 |TextCNN|0.85364|
 |DPCNN|0.85568|
-|fastText|0.87768|
+|fastText|0.87884|
