@@ -83,5 +83,6 @@ def run_fasttext():
     model = fasttext.train_supervised(input=config.train_csv_path)
     # 测试
     score = model.test(path=config.test_csv_path)
+	# print(score)  # model.test() return (num_samples, precision, recall)
 
     print('fastText accuracy: {}'.format(score[1]))
